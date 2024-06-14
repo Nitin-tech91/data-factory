@@ -1,0 +1,9 @@
+{
+	"name": "nt-data-factory-123",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "4a665809-5309-4728-835b-7894b23e0b2b",
+		"tenantId": "03b12b23-4a8a-49d4-b0af-9f0be45550a3"
+	}
+}
