@@ -15,7 +15,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "DelimitedText2",
+						"referenceName": "AzureSynapseAnalyticsTable3",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
@@ -77,19 +77,17 @@
 				"aggregate1 alterRow(updateIf(true())) ~> alterRow1",
 				"alterRow1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     input(",
-				"          movie as string,",
-				"          title as string,",
-				"          genres as string,",
-				"          year as string,",
-				"          Rating as string,",
-				"          {Rotton Tomato} as string",
-				"     ),",
-				"     umask: 0022,",
-				"     preCommands: [],",
-				"     postCommands: [],",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     staged: true,",
+				"     allowCopyCommand: true,",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> sink1"
+				"     skipDuplicateMapOutputs: true,",
+				"     saveOrder: 1,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink1"
 			]
 		}
 	}
